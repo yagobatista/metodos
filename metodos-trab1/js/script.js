@@ -1,12 +1,5 @@
-function secante(max, precisao) {
-  //coe array
-  var coe = new Array();
-  coe[0] = 3;
-  coe[1] = -9;
-  coe[2] = 0;
-  coe[3] = 1;
-  coe[4] = 0;
-  coe[5] = 0;
+function secante(coe, max, precisao) {
+  //coe é uma array os coeficientes do polinomio
   var valor = new Array();
   valor[1] = 0;
   valor[2] = 1;
