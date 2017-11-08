@@ -3,14 +3,14 @@ function secante(coe, max, precisao) {
   var valor = new Array();
   valor[1] = 0;
   valor[2] = 1;
-  var string = "x1 = " + valor[1] + " -> f(x) = " + montar(coe, valor[1]) + "<br>";
-  string += "x2 = " + valor[2] + " -> f(x) = " + montar(coe, valor[2]) + "<br>";
-  max += 2;
-  for (var i = 3; i <= max && modulo(montar(coe, valor[i - 1])) > precisao; i++) {
+  var string = "chute inicial 1  x = " + valor[1] + " -> f(x) = " + montar(coe, valor[1]) + "<br>";
+  string += "chute inicial 2 x = " + valor[2] + " -> f(x) = " + montar(coe, valor[2]) + "<br>";
+  max += 3;
+  for (var i = 3; i < max && modulo(montar(coe, valor[i - 1])) > precisao; i++) {
     valor[i] = valor[i - 1] - (montar(coe, valor[i - 1])) * ((valor[i - 1] - valor[i - 2]) / (montar(coe, valor[i - 1]) - montar(coe, valor[i - 2])));
-    string += "x" + i + " =" + valor[i] + " -> f(x) = " + montar(coe, valor[i]) + "<br>";
+    string += "x" + (i - 2) + " =" + valor[i] + " -> f(x) = " + montar(coe, valor[i]) + "<br>";
   }
-  document.getElementById('resultado').innerHTML = string;
+  document.getElementById('resultado-secante').innerHTML = string;
 }
 
 function montar(coe, x) {

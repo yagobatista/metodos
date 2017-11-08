@@ -74,9 +74,15 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
-					<h2>resultado</h2>
-					<div id="resultado">
+				<div class="col-md-6">
+					<h2>Resultado Secante</h2>
+					<div id="resultado-secante">
+
+					</div>
+				</div>
+				<div class="col-md-6">
+					<h2>Resultado falsa posição</h2>
+					<div id="resultado-fp">
 
 					</div>
 				</div>
@@ -84,13 +90,12 @@
 		</div>
 		<script type="text/javascript">
 		 $("#calcular").on("click",function() {
-			 alert("dasd");
 			 var coe = new Array();
  			for (var i = 0; i < 6; i++) {
  				coe[i] = $("#x"+i).val();
  			}
- 			var precisao = $("#precisao").val();
- 			var max = $("#max-it").val();
+ 			var precisao = parseFloat($("#precisao").val());
+ 			var max = parseInt($("#max-it").val());
  			secante(coe, max , precisao);
 		 });
 		</script>
