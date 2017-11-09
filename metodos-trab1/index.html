@@ -16,7 +16,7 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<h1>Escolha os coeficientes do pilinomio</h1>
+				<h1>Escolha os coeficientes do polinomio</h1>
 				<div class="col-md-1">
 					<input id="x5" type="number" name="" value="" class="form-control">
 				</div>
@@ -52,6 +52,38 @@
 				</div>
 				<div class="col-md-1">
 					x0
+				</div>
+			</div>
+			<div class="row" style="margin-top:2em;">
+				<div class="col-md-1">
+					secante:
+				</div>
+				<div class="col-md-1">
+					chute inicial 1
+				</div>
+				<div class="col-md-1">
+					<input id="chute1" type="number" name="" value="" class="form-control">
+				</div>
+				<div class="col-md-1">
+					chute inicial 2
+				</div>
+				<div class="col-md-1">
+					<input id="chute2" type="number" name="" value="" class="form-control">
+				</div>
+				<div class="col-md-1">
+					Falsa posição:
+				</div>
+				<div class="col-md-1">
+					a
+				</div>
+				<div class="col-md-1">
+					<input id="a" type="number" name="" value="" class="form-control">
+				</div>
+				<div class="col-md-1">
+					b
+				</div>
+				<div class="col-md-1">
+					<input id="b" type="number" name="" value="" class="form-control">
 				</div>
 			</div>
 			<div class="row" style="margin-top:2em;">
@@ -92,11 +124,21 @@
 		 $("#calcular").on("click",function() {
 			 var coe = new Array();
  			for (var i = 0; i < 6; i++) {
- 				coe[i] = $("#x"+i).val();
+				if ($("#x"+i).val() =="") {
+					coe[i]= 0;
+				}
+ 				else{
+					coe[i] = parseFloat($("#x"+i).val());
+				}
  			}
  			var precisao = parseFloat($("#precisao").val());
+			var chute1 = parseFloat($("#chute1").val());
+			var chute2 = parseFloat($("#chute2").val());
+			var a = parseFloat($("#a").val());
+			var b = parseFloat($("#b").val());
  			var max = parseInt($("#max-it").val());
- 			secante(coe, max , precisao);
+ 			secante(coe, max , precisao, chute1 , chute2);
+			falsaPosicao(coe, max , precisao, a , b);
 		 });
 		</script>
 	</body>
