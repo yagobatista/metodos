@@ -88,11 +88,26 @@
 					<button id="calcular" type="button" name="button">Calcular</button>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<h2>Resultado Trapézios</h2>
-					<div id="resultado-secante">
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-4">
+						<h2>Resultado Trapézios</h2>
+						<div id="resultado-trapezio">
 
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2>Resultado Simpson</h2>
+						<div id="resultado-simpson">
+
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2>Resultado Quadratura de Gauss</h2>
+						<div id="resultado-simpson">
+
+						</div>
 					</div>
 				</div>
 			</div>
@@ -115,7 +130,7 @@
 			var b = parseFloat($("#b").val());
  			var n = parseInt($("#n").val());
  			trapezio(a,b,n);
-
+			simpson(a,b,n);
 		 });
 		</script>
 	</body>

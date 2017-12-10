@@ -3,9 +3,9 @@ function trapezio(a,b,n) {
   //max é o numero maximo de iterações
   //chute1 e chute2 sao os chutes iniciais do metodos (x1 e x2)
   //array que guarda os valor de x a cada iteração
-  var h = b-a/n;
+  var h = (b-a)/n;
   var areas = new Array();
-  var string = "";
+  var string = "h = "+h+"</br>";
   var soma = 0;
   for (var i = 0,atual = a; i < n; i++,atual+=h) {
     // formular da secante
@@ -16,9 +16,33 @@ function trapezio(a,b,n) {
 
   }
   // escreve na tela o resultados de cada iteração do metodo da secante na tela
-  document.getElementById('resultado-secante').innerHTML = string+"</br> area total:"+soma;
+  document.getElementById('resultado-trapezio').innerHTML = string+"</br> area total:"+soma;
 }
-
+function simpson(a,b,n) {
+  //coe é uma array com os coeficientes do polinomio
+  //max é o numero maximo de iterações
+  //chute1 e chute2 sao os chutes iniciais do metodos (x1 e x2)
+  //array que guarda os valor de x a cada iteração
+  var h = (b-a)/n;
+  var f = 0 ;
+  var string = "h = "+h+"</br>";
+  var soma = montar(a)+montar(b);
+  for (var i=0,atual = a; atual < b; i++,atual+=h) {
+    // formular da secante
+    // xn = xn-1 -  ( f(xn-1)*((xn-1) - (xn-2)) / f (xn-1) - f(xn-2))
+    f = montar(atual);
+    if (i%2 == 0) {
+      soma += 2*f;
+    }
+    else{
+      soma += 4*f;
+    }
+    string+="f"+i+" = "+ f+"</br>";
+  }
+  soma = soma* h/3;
+  // escreve na tela o resultados de cada iteração do metodo da secante na tela
+  document.getElementById('resultado-simpson').innerHTML = string+"</br> area total:"+soma;
+}
 
 function montar(x) {
   //retorn o valor f(x) do polinomio dado
