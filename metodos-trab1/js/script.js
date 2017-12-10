@@ -22,7 +22,7 @@ function secante(coe, max, precisao, chute1, chute2) {
 function falsaPosicao(coe, max, precisao, a, b) {
   //coe é uma array com os coeficientes do polinomio
   //max é o numero maximo de iterações
-  //a e b é o intervalo 
+  //a e b é o intervalo
   //array que guarda os valor de x a cada iteração
   var valor = new Array();
   var string = "";
