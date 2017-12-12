@@ -9,7 +9,7 @@ function trapezio(a,b,n) {
     string += "Area do trapézio A"+i+"= "+ areas[i]+"</br>";
 
   }
-  // escreve na tela o resultados de cada iteração do metodo da secante na tela
+  // escreve na tela o resultados da area de cada trapézio
   document.getElementById('resultado-trapezio').innerHTML = string+"</br> area total:"+soma;
 }
 function simpson(a,b,n) {
@@ -28,12 +28,15 @@ function simpson(a,b,n) {
     string+="f"+i+" = "+ f+"</br>";
   }
   soma = soma* h/3;
-  // escreve na tela o resultados de cada iteração do metodo da secante na tela
-  document.getElementById('resultado-simpson').innerHTML = string+"</br> area total:"+soma;
+  // escreve na tela o resultados de cada f(xn) e a soma total do metodo
+  document.getElementById('resultado-simpson').innerHTML = string+"</br> Area total:"+soma;
 }
-
+function quadraturaGauss(a,b,n){
+  // escreve na tela o resultados de gauss
+  document.getElementById('resultado-gauss').innerHTML = "teste "+a+b+n;
+}
 function montar(x) {
-  //retorn o valor f(x) do polinomio dado
+  //monta a equação
   return Math.pow(2.718281,x)*(Math.pow(x,2));
 }
 

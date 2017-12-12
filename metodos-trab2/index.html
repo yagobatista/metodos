@@ -26,7 +26,7 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<img src="integral.gif" alt="">
+				<img src="eq.jpg" alt="">
 				<h1>Escolha os valor de :</h1>
 				<div class="col-md-1">
 					<input id="a" type="number" name="" value="" class="form-control">
@@ -115,7 +115,7 @@
 					</div>
 					<div class="col-md-4">
 						<h2>Resultado Quadratura de Gauss</h2>
-						<div id="resultado-simpson">
+						<div id="resultado-gauss">
 
 						</div>
 					</div>
@@ -141,6 +141,7 @@
  			var n = parseInt($("#n").val());
  			trapezio(a,b,n);
 			simpson(a,b,n);
+			quadraturaGauss(a,b,n)
 		 });
 		</script>
 	</body>
