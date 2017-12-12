@@ -4,7 +4,7 @@ function trapezio(a,b,n) {
   var string = "h = "+h+"</br>";
   var soma = 0;
   for (var i = 0,atual = a; i < n; i++,atual+=h) {
-    areas[i] = parseFloat(montar(atual));
+    areas[i] = (montar(atual)+montar(atual+h))*h/2;
     soma+=areas[i];
     string += "Area do trapézio A"+i+"= "+ areas[i]+"</br>";
 
@@ -34,8 +34,7 @@ function simpson(a,b,n) {
 
 function montar(x) {
   //retorn o valor f(x) do polinomio dado
-  // return parseFloat( (1 * Math.pow(x, -3)) - (4*Math.pow(x,-2))+(3*Math.pow(x,-1/3))+5);
-  return (Math.pow(2.718281,x)*(Math.pow(x,2)));
+  return Math.pow(2.718281,x)*(Math.pow(x,2));
 }
 
 function modulo(valor) {
