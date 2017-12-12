@@ -1,16 +1,10 @@
 function trapezio(a,b,n) {
-  //coe é uma array com os coeficientes do polinomio
-  //max é o numero maximo de iterações
-  //chute1 e chute2 sao os chutes iniciais do metodos (x1 e x2)
-  //array que guarda os valor de x a cada iteração
   var h = (b-a)/n;
   var areas = new Array();
   var string = "h = "+h+"</br>";
   var soma = 0;
   for (var i = 0,atual = a; i < n; i++,atual+=h) {
-    // formular da secante
-    // xn = xn-1 -  ( f(xn-1)*((xn-1) - (xn-2)) / f (xn-1) - f(xn-2))
-    areas[i] = (montar(atual)+montar(atual +h))* h/2;
+    areas[i] = parseFloat(montar(atual));
     soma+=areas[i];
     string += "Area do trapézio A"+i+"= "+ areas[i]+"</br>";
 
@@ -19,17 +13,11 @@ function trapezio(a,b,n) {
   document.getElementById('resultado-trapezio').innerHTML = string+"</br> area total:"+soma;
 }
 function simpson(a,b,n) {
-  //coe é uma array com os coeficientes do polinomio
-  //max é o numero maximo de iterações
-  //chute1 e chute2 sao os chutes iniciais do metodos (x1 e x2)
-  //array que guarda os valor de x a cada iteração
   var h = (b-a)/n;
   var f = 0 ;
   var string = "h = "+h+"</br>";
   var soma = montar(a)+montar(b);
   for (var i=0,atual = a; atual < b; i++,atual+=h) {
-    // formular da secante
-    // xn = xn-1 -  ( f(xn-1)*((xn-1) - (xn-2)) / f (xn-1) - f(xn-2))
     f = montar(atual);
     if (i%2 == 0) {
       soma += 2*f;
@@ -46,7 +34,8 @@ function simpson(a,b,n) {
 
 function montar(x) {
   //retorn o valor f(x) do polinomio dado
-  return (1 * Math.pow(x, -3)) - (4*Math.pow(x,-2))+(3*Math.pow(x,-1/3))+5;
+  // return parseFloat( (1 * Math.pow(x, -3)) - (4*Math.pow(x,-2))+(3*Math.pow(x,-1/3))+5);
+  return (Math.pow(2.718281,x)*(Math.pow(x,2)));
 }
 
 function modulo(valor) {
